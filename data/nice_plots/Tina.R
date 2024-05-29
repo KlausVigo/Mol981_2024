@@ -9,6 +9,14 @@ library(phangorn)
 #plot(tr, "u", show.node.label=TRUE, cex=.5, lab4ut="axial")
 #write.tree(tr, "carnivora.nwk")
 #write.csv(carnivora, "carnivora.csv", row.names = FALSE, quote=FALSE)
+#tr$edge.length <- rep(.1, 194)
+#carnivora_fake_dna <- simSeq(tr, 1000)
+#write.phyDat(carnivora_fake_dna, "carnivora_fake_dna.fasta", format="fasta")
+#summary(carnivora)
+#short_names <- abbreviateGenus(carnivora$Species)
+#short_names <- gsub(" ", "_", short_names)
+#carnivora$ShortSpecies <- short_names
+#write.csv(carnivora, "carnivora.csv", row.names = FALSE, quote=FALSE)
 
 tr <- read.tree("carnivora.nwk")
 plot(tr, "u", show.node.label=TRUE, cex=.5, lab4ut="axial")
@@ -32,6 +40,15 @@ x <- setNames(c("red", "blue","yellow","green","pink","darkgreen","lightblue","p
 col <- x[carnivora$Family]
 names(col) <- carnivora$Species
 plot(tr, "u", show.node.label=TRUE, tip.color = col[tr$tip.label], cex=.5, lab4ut="axial")
+
+
+## Shorten / replace species names
+dna <- read.phyDat("carnivora_fake_dna.fasta", format="fasta", type="DNA")
+names(dna)
+x <- setNames(unique(carnivora$ShortSpecies), carnivora$Species)
+names(dna) <- x[names(dna)]
+write.phyDat(dna, "carnivora_short_names.fasta", format="fasta")
+
 
 
 
