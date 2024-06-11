@@ -1,0 +1,41 @@
+---
+title: "My_first_mardown_document"
+author: "Klaus"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Reading in data
+
+First we load some packages
+```{r}
+library(phangorn)
+```
+
+Now we read in the alignment, the tree and ancestral state reconstruction (ASR) 
+from iqtree. 
+```{r}
+tree_iqtree <- read.tree("data/MAFFT_aa_LPMO.FASTA.treefile")
+
+states_iqtree <- read.table("data/MAFFT_aa_LPMO.FASTA.state",header=TRUE)
+
+align <- read.phyDat("data/clean_alignments/LPMO_AA_MAFFT.fasta", 
+                     type="AA", format="fasta")
+```
+
+```{r}
+clean_names <- function(dirty, clean){
+   for(i in clean){
+     pos <- grep(i, dirty)
+     dirty[pos] <- i
+   }
+   dirty
+}
+
+tree_iqtree$tip.label <- clean_names(tree_iqtree$tip.label, names(align))
+
+```
