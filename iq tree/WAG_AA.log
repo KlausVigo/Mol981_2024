@@ -1,0 +1,114 @@
+IQ-TREE multicore version 2.0.7 for Linux 64-bit built Jan 21 2022
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    klaus-ThinkPad-E495 (AVX2, FMA3, 29 GB RAM)
+Command: iqtree2 -s LPMO_AA_MAFFT-1.fasta -m WAG -asr --prefix WAG_AA
+Seed:    214290 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Fri Jun 14 10:56:33 2024
+Kernel:  AVX+FMA - 1 threads (8 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 8 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading alignment file LPMO_AA_MAFFT-1.fasta ... Fasta format detected
+Alignment most likely contains protein sequences
+Alignment has 29 sequences with 412 columns, 304 distinct patterns
+191 parsimony-informative, 29 singleton sites, 192 constant sites
+                Gap/Ambiguity  Composition  p-value
+   1  VC_A0140          2.43%    passed     93.29%
+   2  GHW66171.1        5.58%    passed     96.22%
+   3  HAS4571358.1      5.58%    passed     95.22%
+   4  WP_304572945.1    5.58%    passed     95.24%
+   5  TXZ33925.1        2.43%    passed     95.33%
+   6  EGU19621.1       15.29%    passed     99.78%
+   7  EKO3984585.1      5.58%    passed     99.51%
+   8  MBY7795437.1      5.58%    passed     99.69%
+   9  EKO3966906.1      5.58%    passed     99.60%
+  10  MBY8230713.1      5.58%    passed     99.12%
+  11  MCE7631139.1     21.60%    passed     99.95%
+  12  WP_143679863.1    8.74%    passed     97.68%
+  13  WP_265686903.1    5.58%    passed     99.98%
+  14  WP_252033604.1    5.58%    passed     99.80%
+  15  GAA5644929.1      6.31%    passed     99.96%
+  16  WP_156008740.1    6.31%    passed     99.96%
+  17  OEE74289.1        9.95%    passed    100.00%
+  18  WP_198926735.1    9.95%    passed    100.00%
+  19  WP_199485469.1   11.17%    passed    100.00%
+  20  NAX43402.1        9.95%    passed    100.00%
+  21  WP_176429027.1    9.95%    passed    100.00%
+  22  OEE43498.1        9.95%    passed    100.00%
+  23  WP_237304509.1    6.31%    passed     99.96%
+  24  WP_045396325.1    6.31%    passed     99.94%
+  25  WP_061009122.1   10.19%    passed     99.88%
+  26  HDM8062959.1     11.17%    passed     97.18%
+  27  CAH1228621.1     35.68%    passed     93.17%
+  28  EHV5558441.1     10.19%    passed     99.90%
+  29  WP_065612261.1    4.13%    passed     99.89%
+****  TOTAL             8.91%  0 sequences failed composition chi2 test (p-value<5%; df=19)
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.002 seconds
+
+NOTE: 1 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -4571.520
+Optimal log-likelihood: -4559.232
+Parameters optimization took 1 rounds (0.025 sec)
+Computing ML distances based on estimated model parameters... 0.013 sec
+Computing BIONJ tree...
+0.000 seconds
+Log-likelihood of BIONJ tree: -4568.960
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.327 second
+Computing log-likelihood of 98 initial trees ... 0.894 seconds
+Current best score: -4558.887
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -4556.315
+Iteration 10 / LogL: -4556.320 / Time: 0h:0m:2s
+Iteration 20 / LogL: -4556.320 / Time: 0h:0m:3s
+Finish initializing candidate tree set (1)
+Current best tree score: -4556.315 / CPU time: 3.140
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -4556.350 / Time: 0h:0m:5s (0h:0m:12s left)
+Iteration 40 / LogL: -4576.835 / Time: 0h:0m:7s (0h:0m:12s left)
+Iteration 50 / LogL: -4671.880 / Time: 0h:0m:9s (0h:0m:10s left)
+Iteration 60 / LogL: -4556.317 / Time: 0h:0m:11s (0h:0m:8s left)
+Iteration 70 / LogL: -4565.903 / Time: 0h:0m:13s (0h:0m:6s left)
+Iteration 80 / LogL: -4556.342 / Time: 0h:0m:15s (0h:0m:4s left)
+Iteration 90 / LogL: -4556.365 / Time: 0h:0m:17s (0h:0m:2s left)
+Iteration 100 / LogL: -4560.388 / Time: 0h:0m:19s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:19s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -4556.315
+Optimal log-likelihood: -4556.315
+Parameters optimization took 1 rounds (0.017 sec)
+BEST SCORE FOUND : -4556.315
+Ancestral state probabilities printed to WAG_AA.state
+Total tree length: 1.758
+
+Total number of iterations: 102
+CPU time used for tree search: 19.274 sec (0h:0m:19s)
+Wall-clock time used for tree search: 19.486 sec (0h:0m:19s)
+Total CPU time used: 19.458 sec (0h:0m:19s)
+Total wall-clock time used: 19.719 sec (0h:0m:19s)
+
+Analysis results written to: 
+  IQ-TREE report:                WAG_AA.iqtree
+  Maximum-likelihood tree:       WAG_AA.treefile
+  Likelihood distances:          WAG_AA.mldist
+  Ancestral state:               WAG_AA.state
+  Screen log file:               WAG_AA.log
+
+Date and Time: Fri Jun 14 10:56:52 2024
